@@ -149,7 +149,7 @@ public partial class ChatClientAgent : AIAgent
     public string? Instructions => this.AgentOptions?.Instructions;
 
     /// <summary>
-    /// Gets of the default <see cref="ChatOptions"/> used by the agent.
+    /// Gets the default <see cref="ChatOptions"/> used by the agent.
     /// </summary>
     internal ChatOptions? ChatOptions => this.AgentOptions?.ChatOptions;
 
