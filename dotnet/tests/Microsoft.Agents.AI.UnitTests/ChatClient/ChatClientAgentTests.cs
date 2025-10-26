@@ -2613,7 +2613,8 @@ public partial class ChatClientAgentTests
         Assert.Equal(100, capturedChatOptionsValues[0]);
 
         // Modify the ChatOptions property
-        agent.ChatOptions!.MaxOutputTokens = 200;
+        Assert.NotNull(agent.ChatOptions);
+        agent.ChatOptions.MaxOutputTokens = 200;
 
         // Act & Assert - Second run
         await agent.RunAsync([new(ChatRole.User, "test2")]);
@@ -2653,7 +2654,8 @@ public partial class ChatClientAgentTests
 
         // Change to extended thinking mode
         agent.Instructions = "Think deeply about this question";
-        agent.ChatOptions!.MaxOutputTokens = 4000;
+        Assert.NotNull(agent.ChatOptions);
+        agent.ChatOptions.MaxOutputTokens = 4000;
 
         await agent.RunAsync([new(ChatRole.User, "complex question")]);
         Assert.Equal(2, capturedData.Count);
